@@ -1,0 +1,205 @@
+/* Remove default browser spacing and make the page take the full height */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Ensure the React root element fills the entire screen */
+#root {
+    min-height: 100vh;
+}
+
+
+/* ======================
+   Main Layout
+   ====================== */
+
+/* Center the main Todo app content vertically and horizontally */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Layout for the task creation form (input + button) */
+.create_form {
+    display: flex;
+    gap: 8px; /* space between input and button */
+    margin-top: 10px;
+}
+
+
+/* ======================
+   Input Styling
+   ====================== */
+
+/* Text field where the user writes a new task */
+.create_form input {
+    width: 260px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid black; /* bottom border only */
+    outline: none;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+
+    /* subtle shadow to make the input look more modern */
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+
+/* ======================
+   Add Button Styling
+   ====================== */
+
+.create_form button {
+    padding: 10px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer; /* pointer cursor on hover */
+}
+
+
+/* ======================
+   Task Item Styling
+   ====================== */
+
+/* Container for each task */
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* checkbox on left, trash icon on right */
+    width: 340px;
+    padding: 8px 10px;
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+}
+
+/* Checkbox container (icon + task text) */
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+/* Icon next to the task text */
+.checkbox .icon {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+/* Style applied when a task is completed */
+.line_through {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Spacing for the delete icon container */
+.task div span {
+    margin-left: 8px;
+}
+
+/* Make icons clickable */
+.task div .icon {
+    cursor: pointer;
+}
+
+
+/* ======================
+   Light Theme
+   ====================== */
+
+/* Light mode background and text */
+.light {
+    background-color: white;
+    color: black;
+    min-height: 100vh;
+}
+
+
+/* ======================
+   Dark Theme
+   ====================== */
+
+/* Dark mode background and text */
+.dark {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* Dark mode styles for the input */
+.dark .create_form input {
+    background-color: #1e1e1e;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+/* Dark mode styles for the button */
+.dark .create_form button {
+    background-color: white;
+    color: black;
+}
+
+/* Dark mode styles for tasks */
+.dark .task {
+    background-color: #1e1e1e;
+}
+
+
+/* ======================
+   Smooth Theme Transitions
+   ====================== */
+
+/* Adds smooth animation when switching themes */
+body, #root, input, button, .task {
+    transition: all 0.25s ease;
+}
+
+
+/* ======================
+   Task Hover Effect
+   ====================== */
+
+/* Add shadow and smooth animation to tasks */
+.task {
+    transition: all 0.2s ease;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Slight zoom effect when hovering over tasks */
+.task:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+
+/* ======================
+   Empty State
+   ====================== */
+
+/* Message shown when there are no tasks */
+.empty {
+    margin-top: 40px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* Main empty state text */
+.empty p {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Secondary empty state hint text */
+.empty span {
+    font-size: 14px;
+}
